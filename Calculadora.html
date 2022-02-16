@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calculadora</title>
+
+<script type="text/javascript">
+function Somar() {
+
+var a = document.getElementById("val01").value;
+var b = document.getElementById("val02").value;
+var res =  parseInt(a) + parseInt(b) ;
+alert(res);
+}
+function Subtracao() {
+
+var a = document.getElementById("val01").value;
+var b = document.getElementById("val02").value;
+var res =  parseInt(a) - parseInt(b) ;
+alert(res);
+}
+function Divisao() {
+
+var a = document.getElementById("val01").value;
+var b = document.getElementById("val02").value;
+var res =  parseInt(a) / parseInt(b) ;
+alert(res);
+}
+function multiplicacao() {
+
+var a = document.getElementById("val01").value;
+var b = document.getElementById("val02").value;
+var res =  parseInt(a) * parseInt(b) ;
+alert(res);
+}
+</script>
+</head>
+<body>
+Digite o primeiro valor:
+<input type="number" name="val01" id="val01"><br/><br/>
+Digite o segundo valor:
+<input type="number" name="val02" id="val02"><br/><br/>
+
+<input type="button" name="somar" onclick="Somar();" value="Adição">
+<input type="button" name="subtracao" onclick="Subtracao();" value="Subtração">
+<input type="button" name="divisao"onclick="Divisao();" value="Divisão">
+<input type="button" name="multiplicação"onclick="multiplicacao();" value="Multiplicação">
+
+</body>
+</html>

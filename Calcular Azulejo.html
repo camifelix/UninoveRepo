@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<title>calcula o numero de azulejos</title>
+	</head>
+	<body>
+	<h3> calcula o numero de peças do revestimento </h3>
+		<p>Digite Altura e largura da Parede em cm:</p>
+		
+		<input type="text" name="altura" id="alturaId" placeholder="Digite a altura em cm"/>
+		<br>
+		<input type="text" name="largura" id="larguraId" placeholder="Digite a largura em cm"/>
+		<br>
+		<input type="button" onclick="calcula_total_azulejos()" value="--- calcular ---" id="btn_calcula"/>
+		<hr>
+		<p>escolha o azulejo</p>
+		<input type="Radio" name="azulejo" id="30x30ID" value="1"> 30 x 30
+		<input type="Radio" name="azulejo" id="25x30ID" value="2"> 25 x 30
+		<input type="Radio" name="azulejo" id="30x40ID" value="3"> 30 x 40
+		<input type="Radio" name="azulejo" id="40x40ID" value="4"> 40 x 40
+		<p id="num_azulejos"></p>
+		<script type="text/javascript">  
+		function calcula_total_azulejos() {  // teste com azulejos de 30 x 30
+		   var total_pecas;
+		   if (document.getElementById('30x30ID').checked==true){
+				// calcular com 30 x 30
+				total_pecas=calc_pecas(30,30);
+		   }else if(document.getElementById('25x30ID').checked==true){
+				// calcular com 25 x 30
+				 total_pecas=calc_pecas(25,30);
+		   }
+		   else if(document.getElementById('30x40ID').checked==true){
+				// calcular por 30 x 40
+				 total_pecas=calc_pecas(30,40);
+		   }else if(document.getElementById('40x40ID').checked==true){
+				// calcular por 40 x 40 
+				 total_pecas=calc_pecas(40,40);
+		   }else {
+				alert(" voce não escolheu nenhum azulejo");
+		   }
+		   document.getElementById("num_azulejos").innerHTML=" total de peças : " + total_pecas.toFixed(0);
+		};
+		function calc_pecas(alt_azu,larg_azu){
+			// se sobrar menos que 0.5 azulejo somar 0.5 maior que 0.5 azulejo somar 1
+			
+		    var tot_alt_pecas = Number(document.getElementById('alturaId').value) / alt_azu; 
+				tot_alt_pecas_int = parseInt(tot_alt_pecas);
+				tot_alt_pecas_fra = tot_alt_pecas - tot_alt_pecas_int;
+				
+				if(tot_alt_pecas_fra <=0.5) tot_alt_pecas_int=tot_alt_pecas_int+0.5;
+				else 						tot_alt_pecas_int=tot_alt_pecas_int+1;
+				
+		  	var tot_larg_pecas = Number(document.getElementById('larguraId').value) / larg_azu;
+				tot_larg_pecas_int = parseInt(tot_larg_pecas);
+				tot_larg_pecas_fra = tot_larg_pecas - tot_larg_pecas_int;
+				
+				if(tot_larg_pecas_fra <=0.5) tot_larg_pecas_int=tot_larg_pecas_int+0.5;
+				else 						tot_larg_pecas_int=tot_larg_pecas_int+1;
+				
+			var tot_pecas = tot_alt_pecas_int * tot_larg_pecas_int;
+				tot_pecas_int = parseInt(tot_pecas);
+				tot_pecas_fra = tot_pecas - tot_pecas_int;
+				if(tot_pecas_fra > 0) tot_pecas_int=tot_pecas_int+1;
+				
+			return(tot_pecas_int);			   
+		}
+		
+		</script>
+	</body>
+</html>
+
+
+
+

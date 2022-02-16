@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<title> Exemplo De Box Texto </title>
+	</head>
+	
+	<body>
+	<p> <strong> Clique Alerta: </strong> </p>
+	
+	<input type="button" value="Exibir alert" id="btn-exibir"/>
+	<hr/>
+	
+	<script type="text/javascript">
+	
+	var contador=0;
+	var txtvez="";
+	document.getElementById("btn-exibir").addEventListener("click", function(){
+	contador++;
+	if (contador == 1) txtvez= ' vez';
+	else               txtvez= ' vezes';
+	alert('Foi Clicado: ' + contador + txtvez);
+	});
+	  
+	
+	</script>
+	</body>
+</html>

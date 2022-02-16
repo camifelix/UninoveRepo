@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang='pt-br'>
+	<head>
+		<meta charset="utf-8">
+		<title> Combustivel </title>
+	</head>
+	<body>
+	<p> Digite o tempo e a velocidade média da viagem </p>
+	
+		<input type="text" name="tempo" id="tempoId" placeholder="Digite o tempo da viagem"/>
+		<br />
+		<input type="text" name="velMedia" id="velMediaId" placeholder="Digite a velocidade media"/>
+		<br />
+		<br />
+		<input type="button" value="Calcular Litros Gasto" id="btn-exibir"/>
+		<hr />
+		<p id="distanciaID"></p>
+		<p id="totLitrosID"></p>
+		<input type="hidden" name="preco_gas" id="preco_gasId" placeholder="preco por litro de gasolina"  />
+		<p id="precoTotalID"></p>
+		<hr/>
+		<script type="text/javascript"> 
+		
+		var litros_usa=0;
+		
+		document.getElementById("btn-exibir").addEventListener("click",function() {
+		  var distanciaFinal = Number(document.getElementById('tempoId').value)* 
+		                   Number(document.getElementById('velMediaId').value);
+						   
+			var km_litro = 12;
+
+			litros_usa = distanciaFinal / km_litro;
+			
+			document.getElementById('distanciaID').innerHTML = ' distancia total percorrida : ' + distanciaFinal.toFixed(2) + ' Km';
+			document.getElementById('totLitrosID').innerHTML = ' total de litros gastos : ' + litros_usa.toFixed(2) + ' L';
+			document.getElementById('preco_gasId').setAttribute("type","text");
+		}); 
+		
+	
+	document.getElementById("preco_gasId").addEventListener('change', function () {
+				var precoTotal=litros_usa * Number(document.getElementById('preco_gasId').value);
+				document.getElementById('precoTotalID').innerHTML = ' Custo total da viagem : R$ ' + precoTotal.toFixed(2);	
+	
+	
+    });
+	
+	</script>
+	</body>
+	</html>

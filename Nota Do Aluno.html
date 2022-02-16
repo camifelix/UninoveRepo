@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<title> Nota Do Aluno </title>
+</head>
+
+<body>
+<p> Digite As Notas </p>
+<input type="text" name="num1" id="med1Id" placeholder="Digite a primeira nota"/>
+<br/>
+<input type="text" name="num2" id="med2Id" placeholder="Digite a segunda nota"/>
+<br/>
+<input type="text" name="num3" id="med3Id" placeholder="Digite a terceira nota"/>
+<br/>
+<input type="text" name="num4" id="med4Id" placeholder="Digite a quarta nota"/>
+<br/>
+<input type="button" value="Calcular Média" id="btn-exibir"/>
+<hr/>
+
+<script type="text/javascript">
+document.getElementById("btn-exibir").addEventListener("click", function(){
+
+var a = document.getElementById("med1Id").value; 
+var b = document.getElementById("med2Id").value;
+var c = document.getElementById("med3Id").value;  
+var d = document.getElementById("med4Id").value;
+var res =  Number(a) + Number(b) + Number(c) + Number(d);
+var ab  = res /4;
+
+
+if (ab>=6) alert(" A MediaFinal é :  " + ab + ' (APROVADO)');
+else       alert(' A MediaFinal é : ' + ab + ' (REPROVADO)');
+
+mostrar(ab);
+});
+
+function mostrar(ab){
+document.write('<h3> Calculo da Média </h3> <hr>');
+document.write('Sua média é:'+ ab + '<br>');
+if (ab>=6) document.write('<br>'+ '(APROVADO)');
+else document.write('<br>'+' (REPROVADO)');
+
+}
+
+</script>
+</body>
+</html>
